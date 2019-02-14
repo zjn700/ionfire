@@ -1,0 +1,356 @@
+    1  ls
+    2  mkdir dev
+    3  ls
+    4  cd dev
+    5  nvm
+    6  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    7  nvm
+    8  nvm ls
+    9  nvm install node
+   10  node -v
+   11  nvm --v
+   12  nvm -v
+   13  nvm --version
+   14  npm install -g @angular/cli
+   15  ng new z-list
+   16  cd - z-list/
+   17  ng serve --open
+   18  cd  z-list/
+   19  ng serve --open
+   20  ng serve
+   21  ls
+   22  sudo ls
+   23  sudo apt-get update
+   24  ls
+   25  sudo apt upgrade
+   26  ls
+   27  curl -L https://go.microsoft.com/fwlink/?LinkID=760868 > vscode.deb
+   28  sudo apt install ./vscode.deb
+   29  ng serve
+   30  ng serve --open
+   31  ng serve 
+   32  ls
+   33  cd z-list/
+   34  ng serve 
+   35  ls
+   36  cd z-list/
+   37  ng serve --open
+   38  ng serve
+   39  cd z-list/
+   40  ng serve
+   41  ls
+   42  cd z-list/
+   43  ng serve
+   44  ng serve --port 3500
+   45  ng serve --host 0.0.0.0
+   46  ng serve --host 0.0.0.0 --port 3500
+   47  ng serve --host $(hostname -I) --port 3500
+   48  cd z-list/
+   49  ng serve --host $(hostname -I)
+   50  ls
+   51  cd z-list/
+   52  ls
+   53  ng serve --host $(hostname -I)
+   54  cd lng 
+   55  ls
+   56  ng g c inlonggo
+   57  ng g c ilonggo
+   58  ls
+   59  ng g c navbar
+   60  ls
+   61  cd z-list/
+   62  ng serve --host $(hostname -I)
+   63  cd ..
+   64  ls
+   65  ng -v
+   66  ng version
+   67  ng new lng
+   68  cd lng
+   69  ls
+   70  npm install bootstrap jquery popper
+   71  ng g c home
+   72  ng serve --host $(hostname -I)
+   73  cd ..
+   74  ng new lng
+   75  cd lng 
+   76  ls
+   77  ng g c navbar
+   78  ng g c home
+   79  ng serve --host $(hostname -I)
+   80  npm install bootstrap jquery popper
+   81  ng serve --host $(hostname -I)
+   82  cd lg
+   83  ls
+   84  cd lng 
+   85  ls
+   86  git status
+   87  git remote add origin https://github.com/zjn700/lng.git
+   88  git push -u origin master
+   89  git add .
+   90  git status
+   91  git commit -m 'first commit to github'
+   92  git config --global user.email "zjn700-01@yahoo.com
+   93  "
+   94  git config --global user.name "zajno"
+   95  ls
+   96  git commit -m 'first commit to github'
+   97  git push -u origin master
+   98  git status
+   99  git add .
+  100  git status
+  101  git commit -m "added details on  ng serve --host $(hostname -I) to README"
+  102  git status
+  103  git push -u origin master
+  104  ls
+  105  cd lng 
+  106  ng serve --host $(hostname -I)
+  107  ls
+  108  cd lng 
+  109  ng serve --host $(hostname -I)
+  110  ls
+  111  cd ..
+  112  ls
+  113  cd wsz2800/
+  114  ls
+  115  ls dev/
+  116  cd lng
+  117  ls
+  118  cd dev/
+  119  ls 
+  120  cd lng 
+  121  git status
+  122  git add .
+  123  git status
+  124  git commit "image added"
+  125  git status
+  126  git push -u origin master
+  127  git status
+  128  git commit -m "image added"
+  129  git status
+  130  git push -u origin master
+  131  git status
+  132  cd ..
+  133  ls
+  134  cd ..
+  135  ls
+  136  cd downloads/
+  137  ls
+  138  sudo dpkg -i code_1.30.2-1546901646_amd64.deb 
+  139  sudo apt-get install -f
+  140  cd lng/
+  141  ng serve --host $(hostname -I)
+  142  git status
+  143  git add .
+  144  git status
+  145  git commit -m "updated angular.json with node_modules js files for jquery and bootstrap;added details to README; changed navbar component to enable hamburger/expand/collapse menu"
+  146  git status
+  147  git push -u origin master
+  148  git status
+  149  git add .
+  150  git status
+  151  git commit -m "updated README with VS Code update details "
+  152  git status
+  153  git push -u origin master
+  154  git status
+  155  git add .
+  156  git status
+  157  git commit -m "updated README with VS Code update details 2"
+  158  git status
+  159  git push -u origin master
+  160  git status
+  161  ng serve --host $(hostname -I)
+  162  ls
+  163  cd dev
+  164  ls
+  165  git clone https://github.com/codediodeio/ionic4-master-course.git
+  166  ls
+  167  ls ionic4-master-course/
+  168  npm install -g ionic 
+  169  ionic start ionFire blank --type=angular
+  170  ionic signup
+  171  ls
+  172  cd dev/
+  173  ls
+  174  ls ionFire/
+  175  ionic serve
+  176  ionic serve -c
+  177  ionic cordova platform add android
+  178  ionic cordova platform add ios
+  179  npm i -g cordova
+  180  ionic cordova platform add android
+  181  ionic cordova platform add ios
+  182  ionic serve -c
+  183  ionic serve -devapp
+  184  ionic serve -c
+  185  ionic serve -devapp
+  186  ionic serve -c
+  187  ionic serve -devapp
+  188  ionic serve --devapp
+  189  ionic serve -c  --devapp
+  190  ionic serve -c 
+  191  ionic serve -c --lab-host penguin.linux.test
+  192  ionic serve -c 
+  193  ionic serve -c --no-proxy
+  194  ionic serve -c --port 4200
+  195  ionic serve -c --port 8080
+  196  cd ..
+  197  sudo apt install fonts-firacode
+  198  ls
+  199  cd downloads/
+  200  ls
+  201  unzip FiraCode_1.206.zip 
+  202  ls
+  203  sudo apt install fonts-firacode
+  204  ls
+  205  cd dev
+  206  ls
+  207  cd android-studio/
+  208  unzip android-studio-ide-182.5264788-linux.zip 
+  209  ./android-studio/bin/studio.sh
+  210  ls
+  211  cd dev/
+  212  ls
+  213  cd android-studio/
+  214  ./android-studio/bin/studio.sh
+  215  ls
+  216  cd ..
+  217  ls
+  218  cd flutter/
+  219  ls
+  220  tar xf flutter_linux_v1.0.0-stable.tar.xz 
+  221  ls
+  222  ls flutter
+  223  ls
+  224  cd flutter/
+  225  cd ..
+  226  ls flutter/bin/
+  227  ls flutter/flutter/
+  228  ls
+  229  ls flutter
+  230  ls flutter/bin/
+  231  cd ..
+  232  cd flutter/
+  233  ls
+  234  export PATH="$PATH:`pwd`/flutter/bin"
+  235  flutter
+  236  flutter doctor
+  237  cd ..
+  238  ls
+  239  cd ionFire/
+  240  ls
+  241  ionic cordova plugin add cordova-plugin-firebase
+  242  ionic cordova plugin add cordova-plugin-firebase --save
+  243  npm install @ionic-native/firebase
+  244  git status
+  245  git remote add origin https://github.com/zjn700/ionfire.git
+  246  git push -u origin master
+  247  git add .
+  248  git status
+  249  git commit -m "added firebase with ios and android support and ionic plugin for firebase"
+  250  git status
+  251  git remote add origin https://github.com/zjn700/ionfire.git
+  252  git push -u origin master
+  253  git status
+  254  git fetch origin
+  255  git status
+  256  git pull origin master
+  257  git status
+  258  git add .
+  259  git status
+  260  git commit -m "update README"
+  261  git push -u origin master
+  262  git status
+  263  npm install firebase @angular/fire --save
+  264  ls
+  265  git status
+  266  git add .
+  267  git status
+  268  git commit -m "added web app interface for firebase to include angularfire"
+  269  git status
+  270  git push -u origin master
+  271  git status
+  272  ionic serve -c --port 4200
+  273  ./android-studio/bin/studio.sh
+  274  ls
+  275  cd dev/
+  276  cd android-studio/
+  277  ./android-studio/bin/studio.sh
+  278  ls
+  279  ionic g module shared
+  280  ionic g c shared/profile
+  281  ionic g c shared/login --export
+  282  ionic g page todo
+  283  ionic g c todo/todo-form
+  284  ionic g service services/db
+  285  ionic g page tutorial
+  286  ionic cordova plugin add cordova-sqlite-storage
+  287  npm install --save @ionic/storage
+  288  ionic g guard guards/tutorial
+  289  git status
+  290  git add .
+  291  git status
+  292  git commit -m "added pages (home, tutorial), routing, guards, some css"
+  293  git status
+  294  git push -u origin master
+  295  nvm -v
+  296  nvm -version
+  297  nvm --version
+  298  nvm ls
+  299  npm -v
+  300  java --version
+  301  java -version
+  302  /usr/libexec/java_home -V
+  303  cd ..
+  304  ls
+  305  cd android-studio/
+  306  /usr/libexec/java_home -V
+  307  java --version
+  308  ls
+  309  cd ..
+  310  ls
+  311  cd ..
+  312  ls
+  313  cd dev/
+  314  ls
+  315  cd ionFire/
+  316  ls
+  317  cd ..
+  318  ls
+  319  cd ionic4-master-course/
+  320  ls
+  321  cd src
+  322  ls
+  323  cd app
+  324  ls
+  325  cd tutorial
+  326  ls
+  327  cat tutorial.html
+  328  cat tutorial.page.html 
+  329  cat tutorial.page.ts
+  330  cd ..
+  331  ls
+  332  cd todo
+  333  ls
+  334  cat todo.page.html
+  335  cd ..
+  336  ls
+  337  cd tutorial/
+  338  ls
+  339  cat tutorial.page.scss 
+  340  cat tutorial.page.scss  | more
+  341  ls
+  342  cd ..
+  343  ls
+  344  cd ..
+  345  ls
+  346  cd assets/
+  347  ls
+  348  ls slides/
+  349  cd ..
+  350  ls
+  351  cd app
+  352  ls
+  353  cd guards/
+  354  ls
+  355  cat tutorial.guard.ts 
+  356  history > cmd-history.txt
