@@ -7,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap, take, map } from 'rxjs/operators';
 import { DbService } from './db.service';
 
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Platform } from '@ionic/angular';
 
 import { LoadingController } from '@ionic/angular';
@@ -23,6 +24,7 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private db: DbService,
     private router: Router,
+    private gplus: GooglePlus,
     private platform: Platform,
     private loadingController: LoadingController,
     private storage: Storage
@@ -53,7 +55,7 @@ export class AuthService {
       isAnonymous,
     };
     console.log("update user data", uid, displayName, photoURL, isAnonymous)
-    return
+    // return
   //   return this.db.updateAt(path, data);
   }
 
@@ -113,6 +115,21 @@ export class AuthService {
     await this.setRedirect(false);
 
     return result;
+  }
+
+          // '1085404550227-h1iabv9megngs4eleo7kd5khoo4fkn98.apps.googleusercontent.com',
+
+  async nativeGoogleLogin(): Promise<any> {
+    const gplusUser = await this.gplus.login({
+      webClientId:
+        '460926881977-ofa5addddiuvq4om4a7o6o4fk0fsbh69.apps.googleusercontent.com',
+      offline: true,
+      scopes: 'profile email'
+    });
+
+    return await this.afAuth.auth.signInWithCredential(
+      auth.GoogleAuthProvider.credential(gplusUser.idToken)
+    );
   }
 
 }
