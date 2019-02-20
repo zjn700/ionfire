@@ -13,7 +13,6 @@ import { Platform } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +33,15 @@ export class AuthService {
     );
 
     this.handleRedirect();
+  }
 
+  uid() {
+    return this.user$
+      .pipe(
+        take(1),
+        map(u => u && u.uid)
+      )
+      .toPromise();
   }
 
   async anonymousLogin() {
@@ -55,15 +62,13 @@ export class AuthService {
       isAnonymous,
     };
     console.log("update user data", uid, displayName, photoURL, isAnonymous)
-    // return
-  //   return this.db.updateAt(path, data);
+    // return this.db.updateAt(path, data);
   }
 
   async signOut() {
     await this.afAuth.auth.signOut();
     return this.router.navigate(['/']);
   }
-
 
 //// GOOGLE AUTH
 
@@ -79,11 +84,9 @@ export class AuthService {
     try {
       let user;
       console.log('googleLogin')
-      if (this.platform.is('cordova')) {
-        console.log('cordova')
+      if (this.platform.is('cordova')) { console.log("cordova");
         user = await this.nativeGoogleLogin();
-      } else {
-        console.log('web')
+      } else {  console.log('web')
         await this.setRedirect(true);
         const provider = new auth.GoogleAuthProvider();
         user = await this.afAuth.auth.signInWithRedirect(provider);
@@ -118,7 +121,6 @@ export class AuthService {
   }
 
           // '1085404550227-h1iabv9megngs4eleo7kd5khoo4fkn98.apps.googleusercontent.com',
-
   async nativeGoogleLogin(): Promise<any> {
     const gplusUser = await this.gplus.login({
       webClientId:
@@ -131,5 +133,4 @@ export class AuthService {
       auth.GoogleAuthProvider.credential(gplusUser.idToken)
     );
   }
-
 }
