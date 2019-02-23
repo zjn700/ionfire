@@ -29,7 +29,7 @@ export class AuthService {
     private storage: Storage
   ) { 
     this.user$ = this.afAuth.authState.pipe(
-      // switchMap(user => (user ? db.doc$(`users/${user.uid}`) : of(null)))
+      switchMap(user => (user ? db.doc$(`users/${user.uid}`) : of(null)))
     );
 
     this.handleRedirect();
@@ -62,7 +62,8 @@ export class AuthService {
       isAnonymous,
     };
     console.log("update user data", uid, displayName, photoURL, isAnonymous)
-    // return this.db.updateAt(path, data);
+    // this.router.navigate(['todo'])
+    return this.db.updateAt(path, data);
   }
 
   async signOut() {
@@ -83,14 +84,16 @@ export class AuthService {
   async googleLogin() {
     try {
       let user;
-      console.log('googleLogin')
+         console.log('googleLogin')
       if (this.platform.is('cordova')) { console.log("cordova");
         user = await this.nativeGoogleLogin();
       } else {  console.log('web')
         await this.setRedirect(true);
         const provider = new auth.GoogleAuthProvider();
-        user = await this.afAuth.auth.signInWithRedirect(provider);
-        console.log('user', user)
+        // user = await this.afAuth.auth.signInWithRedirect(provider);
+        user = await this.afAuth.auth.signInWithPopup(provider);
+
+        // .then( success => {console.log("nhhjkv"); this.router.navigate(['todo'])} );
       }
 
       return await this.updateUserData(user);
@@ -107,10 +110,14 @@ export class AuthService {
     const loading = await this.loadingController.create();
     await loading.present();
 
-    const result = await this.afAuth.auth.getRedirectResult();
+    const result = await this.afAuth.auth.getRedirectResult()
 
     if (result.user) {
+      console.log("result.user", result.user, result)
       await this.updateUserData(result.user);
+      // await this.setRedirect(false);
+
+      // this.router.navigate(['todo'])    
     }
 
     await loading.dismiss();
@@ -124,13 +131,16 @@ export class AuthService {
   async nativeGoogleLogin(): Promise<any> {
     const gplusUser = await this.gplus.login({
       webClientId:
-        '460926881977-ofa5addddiuvq4om4a7o6o4fk0fsbh69.apps.googleusercontent.com',
+        // '460926881977-ofa5addddiuvq4om4a7o6o4fk0fsbh69.apps.googleusercontent.com',
+        '139743657138-8c4fj0ee8ge4atrk03q6t5urtflfq7bd.apps.googleusercontent.com',
+        // '139743657138-uh4s69teocit9idj0tfj4fq7am5tmjrl.apps.googleusercontent.com',
       offline: true,
       scopes: 'profile email'
     });
-
-    return await this.afAuth.auth.signInWithCredential(
-      auth.GoogleAuthProvider.credential(gplusUser.idToken)
+    // signInAndRetrieveDataWithCredential
+    // return await this.afAuth.auth.signInWithCredential(
+    return await this.afAuth.auth.signInAndRetrieveDataWithCredential(
+        auth.GoogleAuthProvider.credential(gplusUser.idToken)
     );
   }
 }
