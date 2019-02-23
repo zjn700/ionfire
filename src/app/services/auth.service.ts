@@ -46,7 +46,12 @@ export class AuthService {
 
   async anonymousLogin() {
     const credential = await this.afAuth.auth.signInAnonymously();
+
+    // temporary tutorial reset for anon login only
+    this.storage.set('tutorialComplete', false);
+
     return await this.updateUserData(credential.user);
+
   }
 
   private updateUserData({ uid, email, displayName, photoURL, isAnonymous }) {
@@ -90,8 +95,9 @@ export class AuthService {
       } else {  console.log('web')
         await this.setRedirect(true);
         const provider = new auth.GoogleAuthProvider();
-        // user = await this.afAuth.auth.signInWithRedirect(provider);
-        user = await this.afAuth.auth.signInWithPopup(provider);
+        user = await this.afAuth.auth.signInWithRedirect(provider);
+        // user = await this.afAuth.auth.signInWithPopup(provider);
+
 
         // .then( success => {console.log("nhhjkv"); this.router.navigate(['todo'])} );
       }

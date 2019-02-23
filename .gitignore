@@ -12,6 +12,10 @@ log.txt
 .vscode/
 npm-debug.log*
 
+# compiled output
+/dist
+
+
 .idea/
 .ionic/
 .sourcemaps/
