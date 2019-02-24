@@ -11,21 +11,31 @@ import { IonSlides } from '@ionic/angular';
 })
 export class TutorialPage implements OnInit {
 
-  constructor(private storage: Storage, private router: Router) {}
+  constructor(private storage: Storage, private router: Router) { }
 
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    console.log('resetting slider to zero', this.resetIndex());
+
+  }
   @ViewChild(IonSlides)
   slides: IonSlides;
 
+  async resetIndex() {
+    // console.log('in reset')
+    return await this.slides.slideTo(0)
+
+  }
+
   async finish() {
       await this.storage.set('tutorialComplete', true);
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/home');
+      console.log("tutorialComplete")
   }
 
   next() {
     this.slides.slideNext();
-  }
-
-  ngOnInit() {
   }
 
 }

@@ -6,9 +6,10 @@ import { HomePage } from './home/home.page';
 // import { HomePage } from './home/home.page'
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // save all test
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '', component: HomePage },
-  { path: '', loadChildren: './home/home.module#HomePageModule' },
+  // { path: '', loadChildren: './home/home.module#HomePageModule' , canActivate: [TutorialGuard] },
   { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate: [TutorialGuard] },
   // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'todo', loadChildren: './todo/todo.module#TodoPageModule', canActivate: [AuthGuard] },

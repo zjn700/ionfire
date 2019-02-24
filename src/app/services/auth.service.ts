@@ -28,6 +28,9 @@ export class AuthService {
     private loadingController: LoadingController,
     private storage: Storage
   ) { 
+    // this.storage.set('tutorialComplete', false);
+    // console.log("tutorial not complete")
+
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => (user ? db.doc$(`users/${user.uid}`) : of(null)))
     );
@@ -45,10 +48,11 @@ export class AuthService {
   }
 
   async anonymousLogin() {
+    // this.storage.set('tutorialComplete', false);
+
     const credential = await this.afAuth.auth.signInAnonymously();
 
     // temporary tutorial reset for anon login only
-    this.storage.set('tutorialComplete', false);
 
     return await this.updateUserData(credential.user);
 
@@ -97,6 +101,8 @@ export class AuthService {
         const provider = new auth.GoogleAuthProvider();
         user = await this.afAuth.auth.signInWithRedirect(provider);
         // user = await this.afAuth.auth.signInWithPopup(provider);
+
+        // console.log("user", user)
 
 
         // .then( success => {console.log("nhhjkv"); this.router.navigate(['todo'])} );

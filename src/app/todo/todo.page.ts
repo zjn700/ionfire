@@ -80,6 +80,11 @@ export class TodoPage implements OnInit {
     this.filter.next(val);
   }
 
+  toggleStatusTest(todo) {
+
+    console.log("test", todo)
+  }
+
   async presentTodoForm(todo?: any) {
     const modal = await this.modal.create({
       component: TodoFormComponent,
