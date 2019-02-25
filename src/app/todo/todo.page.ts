@@ -24,6 +24,9 @@ import { ModalController } from '@ionic/angular';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { Observable } from 'rxjs';
 
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.page.html',
@@ -38,8 +41,9 @@ export class TodoPage implements OnInit {
   constructor(
     public db: DbService,
     public modal: ModalController,
-    public auth: AuthService
-  ) {}
+    public auth: AuthService,
+    public router: Router
+  ) { }
 
   ngOnInit() {
     this.todos = this.auth.user$.pipe(
@@ -95,5 +99,10 @@ export class TodoPage implements OnInit {
 
   trackById(idx, todo) {
     return todo.id;
+  }
+
+  goBack() {
+    this.router.navigate(['home'])
+    console.log('todo go home')
   }
 }
