@@ -35,7 +35,7 @@ export class TodoDetailComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['', 'todo'])
-    console.log('hm')
+    this.router.navigate(['/todo']);
+    console.log('hm');
   }
 }

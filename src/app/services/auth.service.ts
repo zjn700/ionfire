@@ -27,7 +27,7 @@ export class AuthService {
     private platform: Platform,
     private loadingController: LoadingController,
     private storage: Storage
-  ) { 
+  ) {
     // this.storage.set('tutorialComplete', false);
     // console.log("tutorial not complete")
 
@@ -38,6 +38,7 @@ export class AuthService {
     this.handleRedirect();
   }
 
+  // used for authguard:
   uid() {
     return this.user$
       .pipe(
@@ -59,7 +60,7 @@ export class AuthService {
   }
 
   private updateUserData({ uid, email, displayName, photoURL, isAnonymous }) {
-  //   // Sets user data to firestore on login
+    //   // Sets user data to firestore on login
     console.log('user', uid)
     const path = `users/${uid}`;
 
@@ -80,7 +81,7 @@ export class AuthService {
     return this.router.navigate(['/']);
   }
 
-//// GOOGLE AUTH
+  //// GOOGLE AUTH
 
   setRedirect(val) {
     this.storage.set('authRedirect', val);
@@ -93,10 +94,12 @@ export class AuthService {
   async googleLogin() {
     try {
       let user;
-         console.log('googleLogin')
-      if (this.platform.is('cordova')) { console.log("cordova");
+      console.log('googleLogin')
+      if (this.platform.is('cordova')) {
+        console.log("cordova");
         user = await this.nativeGoogleLogin();
-      } else {  console.log('web')
+      } else {
+        console.log('web')
         await this.setRedirect(true);
         const provider = new auth.GoogleAuthProvider();
         user = await this.afAuth.auth.signInWithRedirect(provider);
@@ -139,20 +142,20 @@ export class AuthService {
     return result;
   }
 
-          // '1085404550227-h1iabv9megngs4eleo7kd5khoo4fkn98.apps.googleusercontent.com',
+  // '1085404550227-h1iabv9megngs4eleo7kd5khoo4fkn98.apps.googleusercontent.com',
   async nativeGoogleLogin(): Promise<any> {
     const gplusUser = await this.gplus.login({
       webClientId:
         // '460926881977-ofa5addddiuvq4om4a7o6o4fk0fsbh69.apps.googleusercontent.com',
         '139743657138-8c4fj0ee8ge4atrk03q6t5urtflfq7bd.apps.googleusercontent.com',
-        // '139743657138-uh4s69teocit9idj0tfj4fq7am5tmjrl.apps.googleusercontent.com',
+      // '139743657138-uh4s69teocit9idj0tfj4fq7am5tmjrl.apps.googleusercontent.com',
       offline: true,
       scopes: 'profile email'
     });
     // signInAndRetrieveDataWithCredential
     // return await this.afAuth.auth.signInWithCredential(
     return await this.afAuth.auth.signInAndRetrieveDataWithCredential(
-        auth.GoogleAuthProvider.credential(gplusUser.idToken)
+      auth.GoogleAuthProvider.credential(gplusUser.idToken)
     );
   }
 }

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TodoPage } from './todo.page';
 import { TodoFormComponent } from './todo-form/todo-form.component';
-import { TodoDetailComponent } from './todo-detail/todo-detail.component';
+import { TodoDetailComponent } from './todo-detail/TodoDetailComponent';
 
 const routes: Routes = [
   {

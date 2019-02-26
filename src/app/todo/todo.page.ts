@@ -11,7 +11,6 @@
 
 //   ngOnInit() {
 //   }
-
 // }
 
 import { Component, OnInit } from '@angular/core';
@@ -22,6 +21,8 @@ import { AuthService } from '../services/auth.service';
 
 import { ModalController } from '@ionic/angular';
 import { TodoFormComponent } from './todo-form/todo-form.component';
+import { TodoDetailComponent } from './todo-detail/TodoDetailComponent';
+
 import { Observable } from 'rxjs';
 
 import { Router } from '@angular/router';
@@ -86,7 +87,7 @@ export class TodoPage implements OnInit {
 
   toggleStatusTest(todo) {
 
-    console.log("test", todo)
+    console.log('test', todo);
   }
 
   async presentTodoForm(todo?: any) {
@@ -102,7 +103,7 @@ export class TodoPage implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['home'])
-    console.log('todo go home')
+    this.router.navigate(['home']);
+    console.log('todo go home');
   }
 }

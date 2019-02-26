@@ -16,7 +16,7 @@ export class TodoFormComponent implements OnInit {
     private auth: AuthService,
     public modal: ModalController,
     private fb: FormBuilder // private params: NavParams
-  ) {}
+  ) { }
 
   todoForm: FormGroup;
 
@@ -54,4 +54,15 @@ export class TodoFormComponent implements OnInit {
     this.db.updateAt(`todos/${id}`, data);
     this.modal.dismiss();
   }
+
+  cancel() {
+    this.modal.dismiss();
+
+  }
+  // onKeydown(event) {
+  //   if (event.key === "Enter") {
+  //     console.log(event);
+  //   }
+  // }
+
 }
