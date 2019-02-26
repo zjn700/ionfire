@@ -57,7 +57,6 @@ export class TodoFormComponent implements OnInit {
 
   cancel() {
     this.modal.dismiss();
-
   }
   // onKeydown(event) {
   //   if (event.key === "Enter") {
