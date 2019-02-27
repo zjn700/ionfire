@@ -13,6 +13,9 @@ import { Platform } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
+import { MsgService } from './msg.service';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +29,8 @@ export class AuthService {
     private gplus: GooglePlus,
     private platform: Platform,
     private loadingController: LoadingController,
-    private storage: Storage
+    private storage: Storage,
+    private msgService: MsgService
   ) {
     // this.storage.set('tutorialComplete', false);
     // console.log("tutorial not complete")
@@ -62,6 +66,7 @@ export class AuthService {
   private updateUserData({ uid, email, displayName, photoURL, isAnonymous }) {
     //   // Sets user data to firestore on login
     console.log('user', uid)
+    this.msgService.showConsole('user ' + uid)
     const path = `users/${uid}`;
 
     const data = {
@@ -97,9 +102,15 @@ export class AuthService {
       console.log('googleLogin')
       if (this.platform.is('cordova')) {
         console.log("cordova");
+        this.msgService.showConsole('cordova)
+
         user = await this.nativeGoogleLogin();
+        this.msgService.showConsole('user ' + user)
+
       } else {
         console.log('web')
+        this.msgService.showConsole('web')
+
         await this.setRedirect(true);
         const provider = new auth.GoogleAuthProvider();
         user = await this.afAuth.auth.signInWithRedirect(provider);
